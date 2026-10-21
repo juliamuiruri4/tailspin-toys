@@ -124,6 +124,20 @@ start Astro. When Astro reports its local URL, the app opens it in the browser
 canvas automatically. The menu also provides static build and type-check
 commands for on-demand validation.
 
+### Duplicate Issue Review Demo
+
+`.github/workflows/duplicate-review.md` reviews newly opened issues for exact
+duplicates. The agent has read-only issue tools; its close safe output is limited
+to the triggering issue in `juliamuiruri4/tailspin-toys`, with rationale and
+confidence. Merely related or uncertain matches stay open, and the canonical
+issue is never modified.
+
+Configure the `COPILOT_GITHUB_TOKEN` Actions secret before running the workflow.
+The automatic-closure demo uses **Cautious** under **Settings > Planning > Agent
+suggestions for issues**. With gh-aw v0.92.0, run `gh aw compile duplicate-review`
+and publish the source, generated lock, and compiler-managed support files to
+the default branch before opening a test duplicate.
+
 ## License 
 
 This project is licensed under the terms of the MIT open source license. Please refer to the [LICENSE](./LICENSE) for the full terms.
