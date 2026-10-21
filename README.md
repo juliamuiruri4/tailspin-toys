@@ -127,10 +127,16 @@ commands for on-demand validation.
 ### Duplicate Issue Review Demo
 
 `.github/workflows/duplicate-review.md` reviews newly opened issues for exact
-duplicates. The agent has read-only issue tools; its close safe output is limited
-to the triggering issue in `juliamuiruri4/tailspin-toys`, with rationale and
-confidence. Merely related or uncertain matches stay open, and the canonical
-issue is never modified.
+duplicates. Maintainers can also retry an existing issue using **Run workflow**
+and the required `issue_number` input. The agent has read-only issue tools; its
+close safe output is limited to the triggering or maintainer-selected issue in
+`juliamuiruri4/tailspin-toys`, with rationale and confidence. Merely related or
+uncertain matches stay open, and the canonical issue is never modified.
+
+The GitHub read policy is scoped to this repository with `min-integrity: none`
+so triage can read reports from any contributor. Issue content remains untrusted
+data; shell tools are disabled, and this does not bypass repository automation
+controls.
 
 Configure the `COPILOT_GITHUB_TOKEN` Actions secret before running the workflow.
 The automatic-closure demo uses **Cautious** under **Settings > Planning > Agent
